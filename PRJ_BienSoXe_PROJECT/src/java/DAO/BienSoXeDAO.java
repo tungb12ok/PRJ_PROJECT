@@ -127,17 +127,6 @@ public class BienSoXeDAO extends DBContext {
 
     public static void main(String[] args) {
         BienSoXeDAO dao = new BienSoXeDAO();
-
-//        // Test updating a BienSoXe record
-//        BienSoXe bienSoXeToUpdate = dao.getBienSoXeByBienSo("88-12312");
-//        if (bienSoXeToUpdate != null) {
-//            bienSoXeToUpdate.setChuSoHuu("Updated Owner");
-//            bienSoXeToUpdate.setStatus("Inactive");
-//
-//            dao.updateBienSoXe(bienSoXeToUpdate);
-//        }
-
-        // Test Retrieve All
-        System.out.println("All BienSoXe records: " + dao.getAllBienSoXe());
+        System.out.println(dao.getBienSoXeByBienSo("d"));
     }
 }

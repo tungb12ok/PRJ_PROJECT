@@ -35,17 +35,18 @@ public class TraCuuController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
-
-        BienSoXeDAO bDAO = null;
-        ThongTinXeDAO tDAO = null;
+        id = id == null ? "" : id;
+        BienSoXeDAO bDAO = new BienSoXeDAO();
+        ThongTinXeDAO tDAO = new ThongTinXeDAO();
 
         BienSoXe b = bDAO.getBienSoXeByBienSo(id);
         ThongTinXe t = tDAO.getThongTinXeByBienSo(id);
 
-        request.setAttribute("b", b);
-        request.setAttribute("xe", t);
         if (b == null) {
             request.setAttribute("mess", "a");
+        } else {
+            request.setAttribute("b", b);
+            request.setAttribute("xe", t);
         }
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
